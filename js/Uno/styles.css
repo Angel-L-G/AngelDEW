@@ -1,13 +1,60 @@
-body {
+/* H and W for everything */
+body, html {
     height: 100%;
     width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+h4 {
+    margin: 0;
+    height: 25px;
+    text-align: center;
+}
+
+/* User container for displaying the name on the bottom */
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Enemy container for displaying the name on top */
+.topEnemy {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.imgContainer {
+    height: 150px;
+    display: flex;
+}
+
+.table {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table {
+    flex: 1;
 }
 
 #grad {
-    background-image: radial-gradient(#6E72FF, #3F45FF, #070FFF);
+    background-image: radial-gradient(#61AFFD, #2E97FF, #0080FF);
 }
