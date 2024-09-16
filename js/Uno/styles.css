@@ -24,10 +24,18 @@ h4 {
     flex-direction: column;
 }
 
+.userName {
+    color: greenyellow;
+}
+
 /* Top Enemy container for displaying the name on top */
 .topEnemy {
     display: flex;
     flex-direction: column-reverse;
+}
+
+.enemyName {
+    color: red;
 }
 
 .imgContainer {
