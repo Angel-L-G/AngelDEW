@@ -1,0 +1,13 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+#grad {
+    background-image: radial-gradient(#6E72FF, #3F45FF, #070FFF);
+}
