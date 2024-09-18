@@ -4,3 +4,5 @@ function showDateTime() {
     let time = now.toLocaleTimeString('es-ES', { timeZoneName: 'short' });
     console.log(`${date} ${time}`);
 }
+
+showDateTime(); // Ejecutar la función para mostrar la fecha y hora actual.

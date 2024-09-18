@@ -24,3 +24,5 @@ function timeSince(dateString, unit = 'd') {
 
     console.log(`Han pasado ${result} ${unit === 's' ? 'segundos' : unit === 'm' ? 'minutos' : unit === 'h' ? 'horas' : 'días'}.`);
 }
+
+timeSince("10-9-2005");
