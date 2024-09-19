@@ -6,3 +6,7 @@ function findAndReplaceArriba(text) {
         console.log("No se encontró la cadena 'arriba'.");
     }
 }
+
+findAndReplaceArriba("abc arriba abc");
+
+findAndReplaceArriba("abc");

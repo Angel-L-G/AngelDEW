@@ -1,4 +1,5 @@
 function countCharacterInText(text, char) {
+    console.log("a");
     if (typeof char !== 'string' || char.length !== 1) {
         console.error("El segundo parámetro debe ser un único carácter.");
         return;
@@ -12,3 +13,5 @@ function countCharacterInText(text, char) {
     }
     console.log(`El carácter "${char}" aparece ${count} veces en el texto.`);
 }
+
+countCharacterInText("abca", "a");

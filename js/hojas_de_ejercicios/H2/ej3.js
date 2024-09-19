@@ -11,3 +11,5 @@ function displaySum(a, b) {
     // Template strings
     console.log(`${a} + ${b} = ${a + b}`);
 }
+
+displaySum(1,2);

@@ -26,3 +26,5 @@ function sumAndAverage(first, ...args) {
     const average = sum / count;
     console.log(`Suma: ${sum}, Media: ${average}`);
 }
+
+sumAndAverage(1, 2,3,4,5,5,6);

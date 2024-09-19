@@ -5,3 +5,5 @@ function generateRandomArray(numElements = 10, minValue = 100, maxValue = 200) {
     }
     return array;
 }
+
+console.log(generateRandomArray(10, 100, 200));

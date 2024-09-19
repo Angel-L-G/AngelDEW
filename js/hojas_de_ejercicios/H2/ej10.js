@@ -9,3 +9,6 @@ function isPalindrome(text) {
         console.log("El texto no es un palíndromo.");
     }
 }
+
+isPalindrome("A man, a plan, a canal: Panama");
+isPalindrome("racecar");

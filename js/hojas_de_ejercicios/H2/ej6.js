@@ -5,3 +5,5 @@ function processCSV(text = '', separator = ',') {
         console.log(`Elemento ${index + 1}: ${element.trim()}`);
     });
 }
+
+processCSV("a,b,c,d,e,f,g");

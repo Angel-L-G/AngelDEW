@@ -1,3 +1,11 @@
+function generateRandomArray(numElements = 10, minValue = 100, maxValue = 200) {
+    let array = [];
+    for (let i = 0; i < numElements; i++) {
+        array.push(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
+    }
+    return array;
+}
+
 let array4 = generateRandomArray(15, -10, 20);  // Generar array aleatorio
 
 let newArray = [];

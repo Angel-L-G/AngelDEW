@@ -7,3 +7,7 @@ function checkLetterCase(text) {
         console.log("Es una combinación de mayúsculas y minúsculas.");
     }
 }
+
+checkLetterCase("AbC");
+checkLetterCase("ABC");
+checkLetterCase("abc");

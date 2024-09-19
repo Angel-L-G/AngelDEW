@@ -8,3 +8,5 @@ function getDNILetter(dni) {
     const remainder = dni % 23;
     return `${dni}${letters[remainder]}`;
 }
+
+console.log(getDNILetter(12345678));

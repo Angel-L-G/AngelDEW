@@ -16,3 +16,5 @@ function processText(text) {
 
     return score;
 }
+
+console.log(processText("elando"));
