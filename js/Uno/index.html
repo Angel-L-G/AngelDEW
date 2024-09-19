@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
     <link rel="stylesheet" href="./styles.css">
     <title>Uno</title>
 </head>
-<body>
-    <div class="container" id="grad">
-        <div class="imgContainer">
-            <div class="topEnemy">
-                <img src="./img/anon_player.png"/>
-                <h4 class="enemyName">Enemy</h4>
+<body id="grad">
+    <div class="container" >
+        <div class="topEnemy">
+            <h4 class="enemyName">Enemy</h4>
+            <div class="hand">
+
             </div>
         </div>
 
         <div class="table">
             Table
+            <div class="last-card">
+
+            </div>
+
+            <div class="deck-container">
+                <button class="uno-card back" id="draw-button">
+                    <div class="logo">Mazo</div>
+                </button>
+            </div>
         </div>
 
-        <div class="imgContainer">
-            <div class="user">
-                <img src="./img/anon_player.png"/>
-                <h4 class="userName">User</h4>
+        <div class="user">
+            <h4 class="userName">User</h4>
+            <div class="hand">
+
             </div>
         </div>
     </div>

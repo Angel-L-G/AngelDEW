@@ -6,16 +6,230 @@ body, html {
     padding: 0;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-}
-
 h4 {
     margin: 0;
     height: 25px;
     text-align: center;
+}
+
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.card {
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Texto en blanco para mejor contraste */
+}
+
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+div {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+/* Contenedor de la carta actual y el mazo */
+.deck-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.deck button:hover {
+    background-color: #fbc02d;
+}
+
+/* Estilo de los títulos */
+div > div:first-child {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Botón de nuevo juego */
+button:last-child {
+    margin-top: 30px;
+    background-color: #4caf50;
+}
+
+button:last-child:hover {
+    background-color: #388e3c;
+}
+
+/* Estilo general de la carta */
+.uno-card {
+    width: 100px;
+    height: 150px;
+    background-color: #ffeb3b; /* Color de la carta, puedes cambiarlo por otro (rojo, verde, azul) */
+    color: black;
+    border-radius: 15px;
+    border: 5px solid #fbc02d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    user-select: none;
+}
+
+/* Efecto hover para darle una animación */
+.uno-card:hover {
+    transform: scale(1.1);
+}
+
+/* Números en la esquina superior izquierda */
+.uno-card .corner-number.top {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+/* Números en la esquina inferior derecha */
+.uno-card .corner-number.bottom {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+/* Número principal al centro */
+.uno-card .center-number {
+    font-size: 50px;
+}
+
+.uno-card .center-special {
+    font-size: 28px;
+}
+
+/* Variantes de color */
+.uno-card.red {
+    background-color: #f44336;
+    border-color: #d32f2f;
+    color: white;
+}
+
+.uno-card.green {
+    background-color: #4caf50;
+    border-color: #388e3c;
+    color: white;
+}
+
+.uno-card.blue {
+    background-color: #1976d2;
+    border-color: #1565c0;
+    color: white;
+}
+
+.uno-card.yellow {
+    background-color: #ffeb3b;
+    border-color: #fbc02d;
+    color: white;
+}
+
+/* Para cartas especiales (como +4) */
+.uno-card.wild {
+    background: linear-gradient(45deg, red, blue, green, yellow);
+    border-color: black;
+    color: white;
+}
+
+.playerCards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilo general para la parte trasera de la carta */
+.uno-card.back {
+    width: 100px;
+    height: 150px;
+    background-color: black; /* Fondo negro o azul oscuro */
+    border-radius: 15px;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    color: white;
+}
+
+/* Efecto hover */
+.uno-card.back:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo del logo o diseño en el centro */
+.uno-card.back .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: red; /* Color rojo del texto del logo Uno */
+    text-shadow: 2px 2px 0px yellow, -2px -2px 0px yellow;
+}
+
+/* Patrón decorativo en la parte trasera (simulando un patrón central) */
+.uno-card.back::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 2px dashed white;
+    border-radius: 10px;
+}
+
+/* Estilo del botón del mazo */
+#draw-button {
+    background-color: black; /* Color de fondo del mazo */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#draw-button:hover {
+    background-color: #333; /* Color al pasar el mouse */
 }
 
 /* User container for displaying the name on the bottom */
@@ -46,6 +260,7 @@ h4 {
 .table {
     flex: 1;
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -57,10 +272,6 @@ h4 {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-.table {
-    flex: 1;
 }
 
 #grad {
