@@ -7,7 +7,7 @@ var players = [];
 var deck = [];
 var discarded = [];
 var last_card_played;
-var turn = "User";
+var turn = 1;
 
 function init(){
     generateDeck();
@@ -98,7 +98,64 @@ function drawCard(player) {
 }
 
 //TODO
-function playCard(player, card) {
+function userPlay(card) {
+    if (
+        card.value === last_card_played.value || 
+        card.color === last_card_played.color || 
+        card.color === "Wild"
+    ) {
+        if(/^[0-9]$/.test(card.value)){
+            // Se juega un numero
+
+            /**
+             * Cambiar codigo para buscar al user asi:
+             * let result = array.find(obj => obj.name === "User");
+             */
+            let index = players[0].hand.findIndex(c => c.value === card.value);
+
+            if (index !== -1) {
+                players[0].hand.splice(index, 1);
+            } else {
+                return false;
+            }
+
+            last_card_played = card;
+            turn++;
+            discarded.push(card);
+        } else {
+            let index = players[0].hand.findIndex(c => c.value === card.value);
+
+            if (index !== -1) {
+                players[0].hand.splice(index, 1);
+            } else {
+                return false;
+            }
+
+            last_card_played = card;
+            discarded.push(card);
+
+            if(card.value === "skip"){
+                turn++;
+            } else if(card.value === "reverse"){
+                players = [...players.reverse()];
+                
+            
+            } else if(card.value === "+2"){
+    
+            } else if(card.value === "+4"){
+    
+            } else if(card.value === "wild"){
+            
+            } else {
+                return false;
+            }
+
+            turn++;
+        }
+    } else {
+        
+    }
+
     if(/^[0-9]$/.test(card.value)){
         // Aqui solo puede haber numeros
         if(card.value === last_card_played.value || card.color === last_card_played.color){
@@ -108,7 +165,7 @@ function playCard(player, card) {
         }
     }else {
         if(card.value === "skip"){
-
+            
         } else if(card.value === "reverse"){
         
         } else if(card.value === "+2"){
@@ -120,6 +177,14 @@ function playCard(player, card) {
         } else {
             return false;
         }
+        
+        if(turn >= players.length){
+            turn = 0;
+        }else {
+            turn++; // Actualizar el turno
+        }
+        
+        
     }
 }
 
