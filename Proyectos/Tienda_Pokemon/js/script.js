@@ -1,24 +1,42 @@
-//import {Pokemon} from "./classes/Pokemon.js";
+import {Pokemon} from "./classes/Pokemon.js";
 
 //Function for fetchong the data from the pokeapi
-async function fetchdata(uri, resultType){
-    let response = await fetch("https://pokeapi.co/api/v2/"+uri);
+async function fetchData(uri, resultType) {
+    console.log("Result: " + resultType);
+    let response = await fetch("https://pokeapi.co/api/v2/" + uri)
+        .catch(() => setHtml([{ name: "404, Not Found" }]));
+
     let fetchedData = await response.json();
-    let items;
+    let items = [];
 
     switch (resultType) {
         case "pokemon":
-            items = await fetchedData.results;
+            items = fetchedData.results;
             break;
+
         case "type":
-            items = await fetchedData.pokemon;
+            items = fetchedData.pokemon.map(p => p.pokemon);
             break;
+
         case "generation":
-            items = await fetchedData.pokemon_species;
+            items = fetchedData.pokemon_species;
             break;
     }
 
-    return items;
+    const pokemons = await Promise.all(
+        items.map(async (item) => {
+            try {
+                const detailResponse = await fetch("https://pokeapi.co/api/v2/pokemon/" + item.url.split('/').slice(-2, -1)[0]);
+                const detailData = await detailResponse.json();
+                return new Pokemon(detailData);
+            } catch (error) {
+                console.error(`Error fetching details for ${item.name}:`, error);
+                return null;
+            }
+        })
+    );
+
+    return pokemons.filter(pokemon => pokemon !== null);
 }
 
 //This function sets the list on the html.
@@ -26,71 +44,102 @@ async function setHtml(items){
     let htmlList = document.getElementById("items");
     htmlList.innerHTML = "";
 
+    console.log(items);
+
     items.forEach(poke => {
-        let li = document.createElement("li");
-        li.innerHTML = poke.name;
-        htmlList.appendChild(li);
+        let div = document.createElement("div");
+
+        let imgFront = document.createElement("img");
+        imgFront.src = poke.frontSprite;
+
+        let imgBack = document.createElement("img");
+        imgBack.src = poke.backSprite;
+
+        let paragraphName = document.createElement("p");
+        paragraphName.textContent = poke.name;
+
+        let paragraphTypes = document.createElement("p");
+        paragraphTypes.textContent = poke.types.map(t => {return t;});
+
+        div.appendChild(imgFront);
+        div.appendChild(imgBack);
+        div.appendChild(paragraphName);
+        div.appendChild(paragraphTypes);
+
+        htmlList.appendChild(div);
     });
 }
 
 async function fetchPokemons() {
-    let items = await fetchdata("pokemon?limit=151", "pokemon");
-    setHtml(items);
+    let items = await fetchData("pokemon?limit=300", "pokemon");
+    await setHtml(items);
 }
 
 fetchPokemons();
 
 async function fetchPokemonsByType() {
+    setHtml([{name: "Loading..."}]);
+
     let input = document.getElementById("typeFilter");
     let type = input.value;
 
-    let items = await fetchdata("type/"+type, "type");
-    let newItems = [];
-
-    for (let index = 0; index < items.length; index++) {
-        newItems.push(items[index].pokemon)
+    if (type == '') {
+        fetchPokemons();
+        return;
     }
 
-    setHtml(newItems);
+    let pokemons = await fetchData("type/" + type, "type");
+    setHtml(pokemons); // Ahora los pokemons son instancias de la clase Pokemon
 }
 
+
 async function fetchPokemonsByGen() {
+    setHtml([{name: "Loading..."}]);
+
     let input = document.getElementById("genFilter");
     let gen = input.value;
 
-    let items = await fetchdata("generation/"+gen, "generation");
-    setHtml(items);
+    if (gen == '') {
+        fetchPokemons();
+        return;
+    }
+
+    let pokemons = await fetchData("generation/" + gen, "generation");
+    setHtml(pokemons); // Ahora los pokemons son instancias de la clase Pokemon
 }
+
 
 async function filterByTotalStats(items, stat) {
-    setHtml([{name: "Loading"},{name: "."},{name: "."},{name: "."}])
+    setHtml([{name: "Loading..."}]);
 
-    let newItems = await Promise.all(items.map(async (pokemon) => {
-        let response = await fetch(pokemon.url);
-        let fetchedData = await response.json();
+    let pokemons = await Promise.all(items.map(async (pokemon) => {
         let totalStats = 0;
 
-        fetchedData.stats.forEach(stat => {
-            totalStats += stat.base_stat;
+        Object.values(pokemon.stats).forEach(value => {
+            totalStats += value;
         });
 
-        if (totalStats >= stat) {
-            return pokemon;
+        if (totalStats < stat) {
+            pokemon = null;
         }
 
-        return null;
+        return pokemon;
     }));
 
-    return newItems.filter(pokemon => pokemon !== null);
+    return pokemons.filter(pokemon => pokemon !== null);
 }
 
-async function fetchPokemonByStats() {
+async function fetchPokemonsByStats() {
     let input = document.getElementById("statFilter");
     let stat = input.value;
 
-    let items = await fetchdata("pokemon?limit=1025", "pokemon");
+    let items = await fetchData("pokemon?limit=300", "pokemon");
 
     let newItems = await filterByTotalStats(items, stat);
 
     setHtml(newItems);
 }
+
+document.getElementById("typeFilter").addEventListener("keyup",fetchPokemonsByType);
+document.getElementById("genFilter").addEventListener("keyup",fetchPokemonsByGen);
+document.getElementById("statFilter").addEventListener("keyup",fetchPokemonsByStats);

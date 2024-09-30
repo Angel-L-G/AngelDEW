@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokemon Shop</title>
         <link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/>
-        <script type="text/javascript" src="./js/script.js"></script>
+        <script type="module" src="./js/script.js"></script>
     </head>
     <body>
         <header id="main-header">
@@ -16,16 +16,13 @@
         <div>
             <input type="text" id="typeFilter"
                 placeholder="Buscar por tipo..."/>
-                <button onclick="fetchPokemonsByType()">Search</button>
-                <br>
+            <br>
             <input type="number" id="genFilter"
                 placeholder="Buscar por generación..."/>
-                <button onclick="fetchPokemonsByGen()">Search</button>
-                <br>
+            <br>
             <input type="number" id="statFilter"
                 placeholder="Buscar por Poder Total..."/>
-                <button onclick="fetchPokemonByStats()">Search</button>
-                <br>
+            <br>
         </div>
         <div>
             <input type="button" id="btn_lista_deseo"
