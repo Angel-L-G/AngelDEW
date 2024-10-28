@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superman volando</title>
+    <style>
+        img {
+            position: relative;
+            top: 300px;
+            transition: top 1s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Superman</h1>
+    <img id="superman" src="superman.jpg" alt="Superman">
+
+    <script>
+        class Superman {
+            constructor(imagen) {
+                this.imagen = imagen;
+            }
+
+            volar() {
+                this.imagen.style.top = (parseInt(this.imagen.style.top) || 300) - 200 + "px";
+            }
+        }
+
+        const supermanImg = document.getElementById("superman");
+        const superman = new Superman(supermanImg);
+
+        supermanImg.addEventListener("click", function() {
+            superman.volar();
+        });
+    </script>
+
+</body>
+</html>

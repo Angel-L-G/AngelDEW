@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Batalla de los Cinco Ejércitos</title>
+</head>
+<body>
+
+    <h1>Resultado de la Batalla</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Ejercito {
+            constructor(nombre, numeroSoldados, fuerza) {
+                this.nombre = nombre;
+                this.numeroSoldados = numeroSoldados;
+                this.fuerza = fuerza;
+            }
+        }
+
+        const ejercito1 = new Ejercito("Elfos", 5000, 70);
+        const ejercito2 = new Ejercito("Enanos", 4000, 65);
+        const ejercito3 = new Ejercito("Orcos", 7000, 80);
+        const ejercito4 = new Ejercito("Hombres", 4500, 60);
+        const ejercito5 = new Ejercito("Águilas", 300, 90);
+
+        const ejercitos = [ejercito1, ejercito2, ejercito3, ejercito4, ejercito5];
+
+        ejercitos.sort((a, b) => b.fuerza - a.fuerza);
+
+        const resultadoDiv = document.getElementById("resultado");
+
+        ejercitos.forEach(ejercito => {
+            const p = document.createElement("p");
+            p.textContent = `Ejército: ${ejercito.nombre}, Soldados: ${ejercito.numeroSoldados}, Fuerza: ${ejercito.fuerza}`;
+            resultadoDiv.appendChild(p);
+        });
+    </script>
+
+</body>
+</html>

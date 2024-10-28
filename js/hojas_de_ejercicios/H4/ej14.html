@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanos y las Gemas</title>
+</head>
+<body>
+
+    <h1>Thanos y las Gemas del Infinito</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Gema {
+            constructor(nombre, poder) {
+                this.nombre = nombre;
+                this.poder = poder;
+            }
+        }
+
+        class Thanos {
+            constructor() {
+                this.gemas = [];
+            }
+
+            recolectarGema(gema) {
+                this.gemas.push(gema);
+            }
+
+            calcularPoderTotal() {
+                return this.gemas.reduce((total, gema) => total + gema.poder, 0);
+            }
+        }
+
+        const thanos = new Thanos();
+        thanos.recolectarGema(new Gema("Gema del Poder", 50));
+        thanos.recolectarGema(new Gema("Gema del Tiempo", 40));
+        thanos.recolectarGema(new Gema("Gema del Espacio", 60));
+
+        document.getElementById("resultado").textContent = `Poder total de Thanos: ${thanos.calcularPoderTotal()}`;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duelo entre magos</title>
+</head>
+<body>
+
+    <h1>Duelo de Magos</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Hechizo {
+            constructor(nombre, poder) {
+                this.nombre = nombre;
+                this.poder = poder;
+            }
+        }
+
+        class Mago {
+            constructor(nombre, hechizo) {
+                this.nombre = nombre;
+                this.hechizo = hechizo;
+            }
+
+            lanzarHechizo() {
+                return this.hechizo.poder;
+            }
+        }
+
+        const hechizo1 = new Hechizo("Expelliarmus", 50);
+        const hechizo2 = new Hechizo("Avada Kedavra", 100);
+
+        const mago1 = new Mago("Harry", hechizo1);
+        const mago2 = new Mago("Voldemort", hechizo2);
+
+        const poderMago1 = mago1.lanzarHechizo();
+        const poderMago2 = mago2.lanzarHechizo();
+
+        const resultadoDiv = document.getElementById("resultado");
+
+        if (poderMago1 > poderMago2) {
+            resultadoDiv.textContent = `${mago1.nombre} ha ganado el duelo con el hechizo ${mago1.hechizo.nombre}.`;
+        } else if (poderMago1 < poderMago2) {
+            resultadoDiv.textContent = `${mago2.nombre} ha ganado el duelo con el hechizo ${mago2.hechizo.nombre}.`;
+        } else {
+            resultadoDiv.textContent = "¡Es un empate!";
+        }
+    </script>
+
+</body>
+</html>

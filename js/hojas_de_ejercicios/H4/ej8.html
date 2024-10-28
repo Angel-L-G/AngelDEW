@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder de los superhéroes</title>
+</head>
+<body>
+
+    <h1>Superhéroe más poderoso</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Superheroe {
+            constructor(nombre, poder, nivel) {
+                this.nombre = nombre;
+                this.poder = poder;
+                this.nivel = nivel;
+            }
+        }
+
+        const heroes = [
+            new Superheroe("Superman", "Vuelo", 95),
+            new Superheroe("Batman", "Ingenio", 85),
+            new Superheroe("Wonder Woman", "Fuerza", 90)
+        ];
+
+        let masPoderoso = heroes[0];
+
+        heroes.forEach(heroe => {
+            if (heroe.nivel > masPoderoso.nivel) {
+                masPoderoso = heroe;
+            }
+        });
+
+        document.getElementById("resultado").textContent = `El más poderoso es ${masPoderoso.nombre} con el poder de ${masPoderoso.poder}.`;
+    </script>
+
+</body>
+</html>

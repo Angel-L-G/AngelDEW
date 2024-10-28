@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión X-Men</title>
+    <style>
+        .completada {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Misiones de los X-Men</h1>
+    <ul>
+        <li class="mision">Salvar a Mutantes</li>
+        <li class="mision">Derrotar a Magneto</li>
+        <li class="mision">Proteger la Mansión X</li>
+    </ul>
+
+    <script>
+        const misiones = document.querySelectorAll(".mision");
+
+        misiones.forEach(mision => {
+            mision.addEventListener("click", function() {
+                this.classList.toggle("completada");
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Anillo Único</title>
+    <style>
+        #personajes li {
+            padding: 10px;
+            list-style: none;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Personajes de El Señor de los Anillos</h1>
+    <ul id="personajes">
+        <li>Frodo</li>
+        <li>Sam</li>
+        <li>Aragorn</li>
+        <li>Legolas</li>
+        <li>Gimli</li>
+    </ul>
+    
+    <button id="encontrarAnillo">Encontrar el Anillo</button>
+
+    <script>
+        document.getElementById("encontrarAnillo").addEventListener("click", function() {
+            const personajes = document.querySelectorAll("#personajes li");
+            personajes.forEach(personaje => {
+                if (personaje.textContent === "Frodo") {
+                    personaje.classList.add("highlight");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

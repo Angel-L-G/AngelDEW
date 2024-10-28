@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escudo del Capitán América</title>
+    <style>
+        img {
+            position: relative;
+            left: 0;
+            transition: left 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>El escudo del Capitán América</h1>
+    <img id="escudo" src="escudo.jpg" alt="Escudo del Capitán América">
+
+    <script>
+        document.getElementById("escudo").addEventListener("click", function() {
+            this.style.left = (parseInt(this.style.left) || 0) + 100 + "px";
+        });
+    </script>
+
+</body>
+</html>

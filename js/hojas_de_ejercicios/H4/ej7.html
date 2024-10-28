@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combate Jedi</title>
+</head>
+<body>
+
+    <h1>Resultado del Combate</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Jedi {
+            constructor(nombre, nivelFuerza, arma) {
+                this.nombre = nombre;
+                this.nivelFuerza = nivelFuerza;
+                this.arma = arma;
+            }
+        }
+
+        class Sith {
+            constructor(nombre, nivelFuerza, arma) {
+                this.nombre = nombre;
+                this.nivelFuerza = nivelFuerza;
+                this.arma = arma;
+            }
+        }
+
+        const jedi = new Jedi("Luke Skywalker", 85, "Sable láser");
+        const sith = new Sith("Darth Vader", 90, "Sable láser rojo");
+
+        const resultadoDiv = document.getElementById("resultado");
+
+        if (jedi.nivelFuerza > sith.nivelFuerza) {
+            resultadoDiv.textContent = `¡${jedi.nombre} ha ganado!`;
+        } else if (jedi.nivelFuerza < sith.nivelFuerza) {
+            resultadoDiv.textContent = `¡${sith.nombre} ha ganado!`;
+        } else {
+            resultadoDiv.textContent = "¡Es un empate!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El plan de Joker</title>
+</head>
+<body>
+
+    <h1>El Plan de Joker</h1>
+    <div id="resultado"></div>
+
+    <script>
+        class Villano {
+            constructor(nombre, plan) {
+                this.nombre = nombre;
+                this.plan = plan;
+            }
+
+            cambiarPlan(nuevoPlan) {
+                this.plan = nuevoPlan;
+            }
+        }
+
+        const joker = new Villano("Joker", "Causar caos en Gotham");
+        joker.cambiarPlan("Secuestrar a la alcaldesa");
+
+        document.getElementById("resultado").textContent = `El plan actual de Joker es: ${joker.plan}`;
+    </script>
+
+</body>
+</html>

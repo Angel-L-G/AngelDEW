@@ -1,0 +1,214 @@
+/* Paleta de colores de otoño */
+:root {
+    --color-bg: #FAF3E0; /* Fondo claro */
+    --color-primary: #D2691E; /* Marrón otoñal */
+    --color-secondary: #CD853F; /* Marrón claro */
+    --color-accent: #FF8C00; /* Naranja cálido */
+    --color-text: #4B3832; /* Marrón oscuro */
+    --color-input-bg: #FFF8E1; /* Fondo claro de los inputs */
+}
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+/* Contenedor general para las dos columnas */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    height: 90vh;
+}
+
+.pageContaier {
+    display: flex;
+    height: 90%;
+    width: 100%;
+    gap: 10px;
+    flex-direction: column-reverse;
+}
+
+/* Columnas de Carrito y Deseados */
+.column {
+    background-color: var(--color-input-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título de las listas */
+.column h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--color-primary); /* Marrón otoñal */
+}
+
+/* Contenedor de las listas (donde van las cards) */
+.list-container {
+    width: 100%;
+    height: 75vh;
+    overflow-y: auto;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón Comprar */
+.btnComprar {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btnComprar:hover {
+    background-color: var(--color-accent);
+}
+
+/* Para cuando cargues las cards, puedes mantener el estilo existente */
+.poke-card {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Estilo para la card en formato de lista */
+.pokemon-card-list {
+    display: flex; /* Para alinear la imagen y la información horizontalmente */
+    align-items: center; /* Centra verticalmente el contenido */
+    background-color: var(--color-input-bg); /* Fondo otoñal claro */
+    border: 1px solid var(--color-secondary); /* Borde marrón claro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interior */
+    margin: 10px 0; /* Espaciado entre las cards */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 80%; /* Ocupa todo el ancho del contenedor padre */
+    cursor: pointer; /* Cambia el cursor cuando se pasa por encima */
+}
+
+/* Efecto hover para la card */
+.pokemon-card-list:hover {
+    transform: translateX(5px); /* Efecto de desplazamiento horizontal */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más marcada */
+}
+
+/* Imagen del Pokémon */
+.pokemon-img {
+    width: 80px; /* Tamaño de la imagen */
+    height: 80px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Imagen circular */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    background-color: #FFF8E1; /* Fondo claro para la imagen */
+    padding: 5px; /* Espaciado interior */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Contenedor de la información del Pokémon */
+.pokemon-info {
+    display: flex;
+    flex-direction: column; /* Coloca la información en columna */
+    justify-content: center; /* Centra verticalmente la información */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Nombre del Pokémon */
+.pokemon-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-text); /* Color marrón oscuro */
+    margin: 0; /* Sin márgenes adicionales */
+}
+
+/* Tipos de Pokémon */
+.pokemon-types {
+    font-size: 14px;
+    color: var(--color-secondary); /* Color marrón claro */
+    font-style: italic; /* Estilo cursivo para los tipos */
+    margin: 5px 0;
+}
+
+/* Estadísticas del Pokémon */
+.pokemon-stats {
+    font-size: 12px;
+    color: var(--color-text); /* Color marrón oscuro */
+    margin: 0;
+}
+
+/* Estilos para el botón de quitar del carrito */
+.btn-remove {
+    background-color: var(--color-primary); /* Marrón otoñal */
+    color: #fff; /* Texto blanco */
+    padding: 8px 12px; /* Espaciado ajustado */
+    font-size: 14px; /* Tamaño de texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor cuando se pasa por encima */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animación en hover */
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    margin-top: 10px; /* Separación del contenido */
+}
+
+/* Efecto hover */
+.btn-remove:hover {
+    background-color: var(--color-accent); /* Cambia a un tono naranja cálido */
+    transform: scale(1.05); /* Levemente más grande al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+.btn-remove:active {
+    transform: scale(0.95); /* Levemente más pequeño al hacer clic */
+}
+
+/* Estilos para el botón de "Volver al Inicio" */
+.btn-back {
+    background-color: var(--color-secondary); /* Marrón claro */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 20px; /* Separación con el contenido */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efecto hover */
+.btn-back:hover {
+    background-color: var(--color-accent); /* Naranja cálido */
+    transform: translateY(-2px); /* Levantamiento al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+.btn-back:active {
+    transform: translateY(0px); /* Sin movimiento */
+    background-color: var(--color-primary); /* Cambio de color sutil */
+}

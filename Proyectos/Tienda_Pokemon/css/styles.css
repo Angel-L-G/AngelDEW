@@ -1,0 +1,374 @@
+/* Paleta de colores de otoño */
+:root {
+    --color-bg: #FAF3E0; /* Fondo claro */
+    --color-primary: #D2691E; /* Marrón otoñal */
+    --color-secondary: #CD853F; /* Marrón claro */
+    --color-accent: #FF8C00; /* Naranja cálido */
+    --color-text: #4B3832; /* Marrón oscuro */
+    --color-input-bg: #FFF8E1; /* Fondo claro de los inputs */
+}
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Deshabilita el scroll del body */
+}
+
+/* Estilos para la contenedora del formulario */
+.form-container {
+    background-color: var(--color-input-bg); /* Fondo claro de la tarjeta del formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease; /* Transiciones suaves */
+    margin-top: 20px;
+}
+
+.form-container:hover {
+    transform: scale(1.02); /* Efecto de agrandar ligeramente al pasar el cursor */
+}
+
+/* Título del formulario */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--color-text); /* Color del texto principal */
+}
+
+/* Switch */
+.switch-container {
+    margin-bottom: 20px;
+}
+
+.switch-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.switch-label input {
+    display: none;
+}
+
+.switch-label .slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: var(--color-secondary); /* Color marrón claro */
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.switch-label .slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-bg); /* Fondo claro del círculo */
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s ease;
+}
+
+input:checked + .slider {
+    background-color: var(--color-accent); /* Color naranja cálido cuando está activado */
+}
+
+input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+/* Inputs y botones */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="email"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--color-secondary); /* Borde marrón claro */
+    border-radius: 4px;
+    background-color: var(--color-input-bg); /* Fondo claro de los inputs */
+    color: var(--color-text); /* Texto marrón oscuro */
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-accent); /* Borde naranja al enfocarse */
+}
+
+input[type="submit"] {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 90%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color-accent); /* Color naranja cálido en hover */
+}
+
+input[type="submit"]:active {
+    background-color: #D2691E; /* Marrón oscuro cuando se hace clic */
+    transform: scale(0.98); /* Efecto de pequeño encogimiento al hacer clic */
+}
+
+/* Estilos para la lista de items */
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    max-height: 57vh; /* Tamaño máximo de la lista de Pokémon */
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para cada card de Pokémon */
+.poke-card {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 15px;
+    width: 180px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poke-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen de los Pokémon */
+.poke-card img {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: #FFF8E1;
+    padding: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Nombre del Pokémon */
+.poke-card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+/* Tipos de Pokémon */
+.poke-card .types {
+    font-size: 14px;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+/* Estilos para el header */
+#main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--color-primary);
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 5%;
+}
+
+#header-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Estilos para los filtros */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+/* Botones */
+button {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #D2691E;
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Ajustes de alineación para los contenedores */
+div {
+    text-align: center;
+}
+
+div input, div button {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Botones específicos */
+.btnVerListaDeseos, .btnVerCarrito, .btnVerHistorialCompras {
+    background-color: var(--color-secondary);
+}
+
+.btnComprar, .btnDeseado {
+    font-size: 12px;
+    background-color: var(--color-primary);
+}
+
+/* Main content */
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.list-container {
+    background-color: var(--color-input-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.list-container h2 {
+    font-size: 20px;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* Estilos para el encabezado principal */
+#main-header {
+    background-color: var(--color-primary); /* Color de fondo marrón otoñal */
+    padding: 10px 20px; /* Espaciado interior */
+    display: flex; /* Usamos flexbox para organizar el contenido */
+    justify-content: space-between; /* Espaciado entre elementos */
+    align-content: center;
+    align-items: center; /* Centra verticalmente los elementos */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    width: 100%; /* Ancho completo */
+    position: sticky; /* Para que se mantenga en la parte superior al hacer scroll */
+    top: 0; /* Se fija en la parte superior */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Contenido del encabezado */
+.header-content {
+    display: flex; /* Usamos flexbox para el contenido del encabezado */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Título del encabezado */
+#header-title {
+    color: #fff; /* Color del texto blanco */
+    font-size: 28px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    margin: 0; /* Sin margen */
+    text-align: end;
+}
+
+/* Estilos para el botón del encabezado */
+.header-button {
+    background-color: var(--color-accent); /* Color de fondo naranja cálido */
+    color: #fff; /* Color del texto blanco */
+    padding: 10px 15px; /* Espaciado interior del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin-left: 20px; /* Margen a la izquierda para separación */
+    align-self: self-end;
+}
+
+/* Efectos del botón en hover y active */
+.header-button:hover {
+    background-color: #FF6F00; /* Color más oscuro al pasar el cursor */
+    transform: translateY(-2px); /* Efecto de levantar al pasar el cursor */
+}
+
+.header-button:active {
+    background-color: var(--color-primary); /* Vuelve al color original al hacer clic */
+    transform: translateY(0); /* Anula el efecto de levantar */
+}

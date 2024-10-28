@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La máscara de Batman</title>
+    <style>
+        img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>La máscara de Batman</h1>
+    <button id="toggleMask">Mostrar/Esconder</button>
+    <img id="batman" src="batman.jpg" alt="Batman">
+
+    <script>
+        document.getElementById("toggleMask").addEventListener("click", function() {
+            const batmanImg = document.getElementById("batman");
+            batmanImg.style.display = batmanImg.style.display === "none" ? "block" : "none";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Secreto de los Vengadores</title>
+</head>
+<body>
+
+    <h1>Introduce el código secreto:</h1>
+    <input type="password" id="codigo" placeholder="Escribe la contraseña">
+    <p id="mensaje"></p>
+
+    <script>
+        document.getElementById("codigo").addEventListener("input", function() {
+            const codigo = this.value;
+            const mensaje = document.getElementById("mensaje");
+
+            if (codigo === "Vengadores") {
+                mensaje.textContent = "Assemble!";
+            } else {
+                mensaje.textContent = "";
+            }
+        });
+    </script>
+
+</body>
+</html>

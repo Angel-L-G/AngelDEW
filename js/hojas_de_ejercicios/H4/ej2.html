@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 9 Nazgûl</title>
+    <style>
+        #nazgul li {
+            padding: 10px;
+            list-style: none;
+            background-color: lightgray;
+            margin: 5px;
+        }
+        #nazgul li:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Los 9 Nazgûl</h1>
+    <ul id="nazgul">
+        <li>Rey Brujo de Angmar</li>
+        <li>Khamûl</li>
+        <li>Adûnaphel</li>
+        <li>Dwar de Waw</li>
+        <li>Hoarmûrath</li>
+        <li>Indûr</li>
+        <li>Ren</li>
+        <li>Ûvatha</li>
+        <li>Akhorahil</li>
+    </ul>
+
+    <script>
+        const nazgulElements = document.querySelectorAll("#nazgul li");
+        nazgulElements.forEach((nazgul) => {
+            nazgul.addEventListener("mouseover", function() {
+                this.textContent = "Nazgûl";
+            });
+        });
+    </script>
+
+</body>
+</html>

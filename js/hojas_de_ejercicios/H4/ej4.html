@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de la Tierra Media</title>
+    <style>
+        .mapa {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px;
+        }
+        .reino {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .mordor { background-color: red; }
+        .rohan { background-color: green; }
+        .gondor { background-color: blue; }
+    </style>
+</head>
+<body>
+
+    <h1>Mapa de la Tierra Media</h1>
+    <div class="mapa">
+        <div class="reino mordor" id="mordor">Mordor</div>
+        <div class="reino rohan" id="rohan">Rohan</div>
+        <div class="reino gondor" id="gondor">Gondor</div>
+    </div>
+
+    <script>
+        document.getElementById("mordor").addEventListener("click", function() {
+            alert("Has clickeado en Mordor");
+        });
+
+        document.getElementById("rohan").addEventListener("click", function() {
+            alert("Has clickeado en Rohan");
+        });
+
+        document.getElementById("gondor").addEventListener("click", function() {
+            alert("Has clickeado en Gondor");
+        });
+    </script>
+
+</body>
+</html>

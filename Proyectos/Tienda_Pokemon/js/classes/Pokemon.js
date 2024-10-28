@@ -1,4 +1,4 @@
-export class Pokemon {
+export default class Pokemon {
     constructor(data) {
         this.name = data.name;
         this.uri = data.url || data.uri;

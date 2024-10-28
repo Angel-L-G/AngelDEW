@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La elección del Anillo</title>
+</head>
+<body>
+
+    <h1>Elige un anillo</h1>
+    <div>
+        <img src="anillo_sauron.jpg" alt="Anillo de Sauron" style="width:100px;">
+        <img src="anillo_gandalf.jpg" alt="Anillo de Gandalf" style="width:100px;">
+        <img id="anilloFrodo" src="anillo_frodo.jpg" alt="Anillo de Frodo" style="width:100px;">
+    </div>
+    <p id="mensaje"></p>
+
+    <script>
+        document.getElementById("anilloFrodo").addEventListener("click", function() {
+            document.getElementById("mensaje").textContent = "Has elegido correctamente";
+        });
+    </script>
+
+</body>
+</html>
