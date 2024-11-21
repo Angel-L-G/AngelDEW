@@ -1,5 +1,7 @@
 import Pokemon from "./js/classes/Pokemon.js";
 import SesionManager from "./js/classes/SesionManager.js"
+import UserData from "./js/classes/UserData.js"
+import save, { getById } from "./js/DB/DAO.js";
 
 async function fetchData(uri, resultType) {
     let response = await fetch("https://pokeapi.co/api/v2/" + uri)
@@ -12,11 +14,9 @@ async function fetchData(uri, resultType) {
         case "pokemon":
             items = fetchedData.results;
             break;
-
         case "type":
             items = fetchedData.pokemon.map(p => p.pokemon);
             break;
-
         case "generation":
             items = fetchedData.pokemon_species;
             break;
@@ -86,7 +86,7 @@ export async function setHtml(items){
         div.appendChild(buttonContainer);
 
         htmlList.appendChild(div);
-    });  
+    });
 }
 
 export async function fetchPokemons() {
@@ -106,7 +106,7 @@ async function fetchPokemonsByType() {
     }
 
     let pokemons = await fetchData("type/" + type, "type");
-    setHtml(pokemons); // Ahora los pokemons son instancias de la clase Pokemon
+    setHtml(pokemons);
 }
 
 
@@ -122,7 +122,7 @@ async function fetchPokemonsByGen() {
     }
 
     let pokemons = await fetchData("generation/" + gen, "generation");
-    setHtml(pokemons); // Ahora los pokemons son instancias de la clase Pokemon
+    setHtml(pokemons);
 }
 
 
@@ -158,40 +158,60 @@ async function fetchPokemonsByStats() {
 }
 
 async function addToCart(p) {
-    console.log("1");
     let cart = JSON.parse(localStorage.getItem('cart'));
 
     console.log(cart);
     console.log(Array.isArray(cart));
 
     if (cart == null) {
-        console.log("2");
         cart = [];
         cart[0] = p;
     }else {
         cart.push(p);
     }
-    
-    console.log("3");
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log("4");
 }
 
 async function addToWished(p) {
+    try {
+        let uid = JSON.parse(localStorage.getItem('user')).uid;
+        const userData = await getById(uid);
 
+        if (!userData) {
+            console.error("No se encontraron datos de usuario para este UID.");
+            return;
+        }
+
+        let userDataObj = new UserData(uid);
+        userDataObj.wishes = userData.wishes;
+        userDataObj.history = userData.history;
+ 
+        userDataObj.wishes.push(p);
+        userDataObj.wishes = JSON.stringify(userDataObj.wishes);
+        userDataObj.wishes = JSON.parse(userDataObj.wishes);
+
+        const data = userDataObj.toJson();
+        await save(uid, data);
+
+    } catch (error) {
+        console.error("Error al añadir el Pokémon a la lista de deseos:", error);
+    }
 }
 
 function redirectToUserData() {
     window.location.href = "userList.html";
 }
 
-function initApp() {
-    var sesionManager = new SesionManager();
+function redirectToHistory() {
+    window.location.href = "history.html";
+}
 
+function initApp() {
     fetchPokemons();
     
     document.getElementById("btnCartWished").addEventListener("click",redirectToUserData);
+    document.getElementById("btnHistory").addEventListener("click",redirectToHistory);
     document.getElementById("typeFilter").addEventListener("keyup",fetchPokemonsByType);
     document.getElementById("genFilter").addEventListener("keyup",fetchPokemonsByGen);
     document.getElementById("statFilter").addEventListener("keyup",fetchPokemonsByStats);

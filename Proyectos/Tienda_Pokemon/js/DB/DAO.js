@@ -1,11 +1,18 @@
-import { getDocs, setDoc, doc } from "firebase/firestore/lite";
+import { getDoc, setDoc, doc } from "firebase/firestore/lite";
+import { collection, query, where } from "firebase/firestore";
 import { db } from "./FirebaseConfig";
+import UserData from "../classes/UserData.js";
 
 export default async function save(uid, data) {
+    console.log("1");
+    console.log(uid);
+    console.log(data);
+    console.log("1.1");
     try {
+        console.log("2");
         // Referencia al documento de usuario en Firestore
         const userRef = doc(db, "userData", uid);
-    
+        console.log("3");
         // Guarda el objeto en Firestore
         await setDoc(userRef, data);
     
@@ -15,34 +22,18 @@ export default async function save(uid, data) {
     }
 }
 
-export async function update(data) {
-
-}
-
-export async function getById(uid){
-    const userCollectionRef = collection(db, "userData");
-    
-    // Crear una consulta para obtener documentos con el `uid` proporcionado
-    const q = query(userCollectionRef);
-
-    console.log("1");
-    console.log(q);
-    
+export async function getById(uid) {
     try {
-        // Ejecutar la consulta y obtener los documentos
-        const querySnapshot = await getDocs(q);
+        const docRef = doc(db, "userData", uid);
+        const docSnap = await getDoc(docRef);
 
-        console.log("2");
-        console.log(querySnapshot);
-        
-        // Si existen documentos, mapear los datos
-        const userData = querySnapshot.docs.map(doc => ({
-            id: doc.id,      // ID del documento
-            ...doc.data()    // Datos del documento
-        }));
-        
-        console.log("Datos del usuario:", userData);
-        return userData;   // Retorna los datos obtenidos
+        if (docSnap.exists()) {
+            //console.log("Datos del usuario:", docSnap.data());
+            return { id: docSnap.id, ...docSnap.data() };
+        } else {
+            console.log("No se encontró usuario con este UID.");
+            return null;
+        }
     } catch (error) {
         console.error("Error al obtener los datos del usuario:", error);
         return null;

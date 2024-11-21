@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>App Entrenamiento Pokemón</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>App Entrenamiento Pokemón</h1>
+        <div id="pokemon-selector">
+            <h2>Selecciona el pokemon a entrenar</h2>
+            <select id="pokemon-list"></select>
+
+            <select id="stat-to-train">
+                <option selected>attack</option>
+                <option>defense</option>
+                <option>speed</option>
+                <option>hp</option>
+                <option>special_attack</option>
+            </select>
+
+            <input type="number" id="training-percentage" value="1">
+
+            <button id="update-poke">Actualizar datos</button>
+
+            <div id="results"></div>
+
+            <button id="start-training">Start Training</button>
+        </div>
+        <div id="training-status" style="display: none;">
+            <p id="status-message"></p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="module" src="./dist/script.js"></script>
+
+    </body>
+</html>

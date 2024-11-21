@@ -1,0 +1,89 @@
+/* history.css */
+:root {
+    --color-bg: #FAF3E0; /* Fondo claro */
+    --color-primary: #D2691E; /* Marrón otoñal */
+    --color-secondary: #CD853F; /* Marrón claro */
+    --color-accent: #FF8C00; /* Naranja cálido */
+    --color-text: #4B3832; /* Marrón oscuro */
+    --color-input-bg: #FFF8E1; /* Fondo claro de los inputs */
+}
+
+/* General styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+/* Styles for the back button */
+.btn-back {
+    padding: 10px 20px;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: var(--color-secondary);
+}
+
+/* History container styles */
+.history-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--color-input-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styles for each purchase */
+.purchase-list {
+    list-style: none;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.purchase-list:last-child {
+    border-bottom: none;
+}
+
+.purchase-list h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+/* Styles for each Pokémon item in the list */
+.purchase-list li {
+    padding: 8px;
+    margin: 5px 0;
+    background-color: var(--color-bg);
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-text);
+    border-left: 4px solid var(--color-accent);
+    padding-left: 10px;
+}
+
+/* Hover effect on each Pokémon item */
+.purchase-list li:hover {
+    background-color: var(--color-input-bg);
+}

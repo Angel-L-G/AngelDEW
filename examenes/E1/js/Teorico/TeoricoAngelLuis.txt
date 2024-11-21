@@ -1,0 +1,34 @@
+(1) Falla que la multiplicacion no se hara porque los datos los recoje como una cadena de texto, y la suma porque concatenara los numeros por lo dicho anteriormente
+Solucion: Castear los valores de los inputs a enteros primero.
+
+(2) 
+    -a- Las variables definidas con var son globales y las definidas con let son entorno.
+    -b- Poniendo const antes del nombre y definiendole un valor que no cambiara.
+    -c- Poniendo var antes del nombre
+    -d- Depende del contexto las globales son muy utiles para algunos casos pero no hay que abusar de ellas.
+
+(3)
+    -a- Si, porque el codigo se compila entero y despues se ejecuta.
+    -b- No, porque no puedes acceder a un espacio de memoria que no esta asignado todavia.
+    -c- Si, porque es una global.
+    -d- No, porque es una constante y dicha variable no tiene un valor todavia.
+
+(4)
+    -a- Si, siempre es una buena practica asegurarte de que los datos son correctos antes de hacer nada, incluso conociendo a los usuarios.
+    -b- Si, siempre en el servidor para evitar a los usuarios maliciosos.
+    -c- Tipos en los inputs y condiciones en el servidor.
+
+(5)
+    -a- node.nodeType
+    -b- node.parentNode.firtsChild
+    -c- node.parentNode.lastElementChild
+    -d- node.querySelectorAll("div")
+    -e- node.childElementCount
+    -f- node.childCount
+    -g- node.remove()
+    -h- node.cloneNode()
+
+(6)
+    -a- sessionstorage
+    -b- localstorage
+    -c- 

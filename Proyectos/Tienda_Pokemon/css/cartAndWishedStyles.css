@@ -74,6 +74,7 @@ body {
 /* Botón Comprar */
 .btnComprar {
     background-color: var(--color-primary);
+    flex: 1;
     color: #fff;
     padding: 10px;
     font-size: 16px;
@@ -165,6 +166,7 @@ body {
 /* Estilos para el botón de quitar del carrito */
 .btn-remove {
     background-color: var(--color-primary); /* Marrón otoñal */
+    flex:1;
     color: #fff; /* Texto blanco */
     padding: 8px 12px; /* Espaciado ajustado */
     font-size: 14px; /* Tamaño de texto */
@@ -211,4 +213,27 @@ body {
 .btn-back:active {
     transform: translateY(0px); /* Sin movimiento */
     background-color: var(--color-primary); /* Cambio de color sutil */
+}
+
+/* Contenedor de botones dentro de la tarjeta de Pokémon */
+.pokemon-card-buttons {
+    display: flex; /* Alinea los botones en fila */
+    justify-content: space-between; /* Espacio entre los botones */
+    width: 100%; /* Abarca el ancho de la tarjeta */
+    margin-top: 10px; /* Separación con el contenido de la tarjeta */
+}
+
+/* Ajustes para el botón "Quitar Del Carrito" dentro de la tarjeta */
+.pokemon-card-buttons .btn-remove {
+    flex: 1; /* Abarca todo el espacio horizontal disponible */
+    margin-right: 5px; /* Espacio entre botones */
+    padding: 8px; /* Ajuste del tamaño */
+    font-size: 14px;
+}
+
+/* Ajustes para el botón "Añadir Al Carrito" */
+.pokemon-card-buttons .btnComprar {
+    flex: 1; /* Abarca todo el espacio horizontal disponible */
+    padding: 8px; /* Ajuste del tamaño */
+    font-size: 14px;
 }
