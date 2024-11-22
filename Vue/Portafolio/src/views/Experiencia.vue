@@ -1,0 +1,41 @@
+<template>
+    <div class="container mt-5">
+        <h2 class="text-center">Experiencia</h2>
+        <div class="mt-4">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h5>Desarrollador Frontend en Tech Solutions</h5>
+                    <p><strong>Duración:</strong> Junio 2022 - Actualidad</p>
+                    <p>
+                        Desarrollo de interfaces web interactivas utilizando Vue.js, Vue Router y Pinia para la gestión del
+                        estado.
+                        Implementación de sistemas de diseño responsivo con Bootstrap y mejora del rendimiento en
+                        producción.
+                    </p>
+                    <p><strong>Correo:</strong> ejemplo@correo.com</p>
+                </li>
+
+                <li class="list-group-item">
+                    <h5>Desarrollador Full Stack Freelance</h5>
+                    <p><strong>Duración:</strong> Enero 2021 - Mayo 2022</p>
+                    <p>
+                        Colaboré con startups y pequeñas empresas desarrollando aplicaciones web completas. Usé tecnologías
+                        como Node.js, Vue.js, y bases de datos SQL/NoSQL.
+                    </p>
+                    <p><strong>Correo:</strong> ejemplo@correo.com</p>
+                </li>
+
+                <li class="list-group-item">
+                    <h5>Prácticas en Desarrollo Web en Innovatech</h5>
+                    <p><strong>Duración:</strong> Marzo 2020 - Diciembre 2020</p>
+                    <p>
+                        Creación de prototipos funcionales y mantenimiento de aplicaciones existentes. Aprendí buenas
+                        prácticas de desarrollo y testing automatizado.
+                    </p>
+                    <p><strong>Correo:</strong> ejemplo@correo.com</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+  
