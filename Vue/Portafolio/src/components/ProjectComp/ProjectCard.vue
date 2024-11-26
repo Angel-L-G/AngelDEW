@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from './Project';
+import type { Project } from '@/components/ProjectComp/Project';
 
 defineProps<{
     project: Project;

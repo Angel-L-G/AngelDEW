@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ProjectCard from '@/components/ProjectCard/ProjectCard.vue';
-import type { Project } from '@/components/ProjectCard/Project';
+import ProjectCard from '@/components/ProjectComp/ProjectCard.vue';
+import type { Project } from '@/components/ProjectComp/Project';
 
 
 const projects: Array<Project> = [

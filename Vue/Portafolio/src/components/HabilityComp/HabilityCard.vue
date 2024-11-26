@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import type {Hability} from '@/components/HabilityComp/Hability';
 
     defineProps<{
@@ -10,7 +11,9 @@
     <div class="card bg-dark">
         <div class="card-body">
             <h5 class="card-title text-light">
-                <i :class="hability.icon" :style="{ color: hability.color}"></i> 
+                <font-awesome-icon 
+                    :icon="hability.icon" 
+                    :style="{ color: hability.color}"/>
                 {{ hability.title }}
             </h5>
             <p class="card-text text-light">{{ hability.description }}</p>

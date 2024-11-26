@@ -1,36 +1,40 @@
+<script lang="ts" setup>
+import HabilityCard from '@/components/HabilityComp/HabilityCard.vue';
+import type { Hability } from '@/components/HabilityComp/Hability';
+
+let habilities: Array<Hability> = [
+    {
+        title: "Java",
+        description: "Desarrollo de java, por dos años",
+        color: "rgb(255, 178, 71)",
+        icon: ["fab", "java"]
+    },
+    {
+        title: "React",
+        description: "Desarrollo de React, por dos años",
+        color: "aqua",
+        icon: ["fab", "react"]
+    },
+    {
+        title: "JS",
+        description: "Desarrollo de Javascript, por dos años",
+        color: "Yellow",
+        icon: ["fab", "js"]
+    },
+    {
+        title: "Github",
+        description: "Uso de Github, por dos años",
+        color: "white",
+        icon: ["fab", "github"]
+    }
+];
+</script>
+
 <template>
     <h2 class="text-center mt-4">Habilidades</h2>
     <div class="row mt-1">
-        <div class="col-md-4">
-            <div class="card bg-dark">
-                <div class="card-body">
-                    <h5 class="card-title text-light">
-                        <i class="bi bi-cup-hot-fill link-light"></i> Java
-                    </h5>
-                    <p class="card-text text-light">Desarrollo de java con SpringBoot</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-dark">
-                <div class="card-body">
-                    <h5 class="card-title text-light"><i class="bi bi-filetype-js link-warning"></i>JavaScript</h5>
-                    <p class="card-text text-light">Dominio de JavaScript moderno (ES6+), incluyendo promesas, async/await, y eventos
-                        asíncronos.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-dark">
-                <div class="card-body text-light">
-                    <h5 class="card-title text-light">
-                        <i class="bi bi-filetype-html link-danger"></i> HTML & 
-                        <i class="bi bi-filetype-css link-primary"></i> CSS
-                    </h5>
-                    <p class="card-text text-light">Diseño de interfaces atractivas con HTML5 y CSS3, y uso de frameworks como
-                        Bootstrap para diseño responsivo.</p>
-                </div>
-            </div>
+        <div class="col-md-4 mb-3" v-for="hability in habilities">
+            <HabilityCard :hability="hability" />
         </div>
     </div>
 </template>
