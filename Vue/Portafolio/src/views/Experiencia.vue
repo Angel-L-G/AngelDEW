@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+import * as html2pdf from 'html2pdf.js';
+
+function downloadPdf() {
+  const content = document.getElementById('pdf-content');
+
+  if (content) {
+    const options = {
+      margin: 1,
+      filename: 'AngelCvExample.pdf',
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+    };
+
+    html2pdf().set(options).from(content).save();
+  } else {
+    console.error('No se encontró el contenido para generar el PDF');
+  }
+}
+</script>
+
 <template>
     <div class="container mt-5">
         <h2 class="text-center">Experiencia</h2>
@@ -36,6 +57,8 @@
                 </li>
             </ul>
         </div>
+
+        <button class="btn btn-success-outline" @click="downloadPdf">Descargar En Pdf</button>
     </div>
 </template>
   
