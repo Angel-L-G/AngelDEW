@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Globos from '../views/Globos.vue'
+import Events from '../views/Events.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/globos',
       name: 'globos',
       component: Globos,
+    },
+    {
+      path: '/events',
+      name: 'events',
+      component: Events,
     },
   ],
 })
