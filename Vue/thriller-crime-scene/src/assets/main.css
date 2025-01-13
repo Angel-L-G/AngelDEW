@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.crime-scene {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.dialogue-box {
+  margin-top: 20px;
+  border: 1px solid #999;
+  padding: 15px;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.dialogue-box .header,
+.dialogue-box .content,
+.dialogue-box .footer {
+  margin-bottom: 10px;
+}
