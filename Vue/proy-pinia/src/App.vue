@@ -1,8 +1,18 @@
-<script setup lang="ts">
-import ChampionList from "@/components/ChampionList.vue";
-import {mockCampions} from '@/components/types/Champion.ts';
-</script>
-
+// src/App.vue
 <template>
-  <ChampionList :champions="mockCampions" />
+  <div id="app">
+    <h1>League of Legends - Campeones</h1>
+    <Home />
+  </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Home from './views/Home.vue';
+
+export default defineComponent({
+  components: {
+    Home,
+  },
+});
+</script>

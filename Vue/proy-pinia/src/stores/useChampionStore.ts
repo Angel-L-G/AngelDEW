@@ -1,15 +1,39 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
-import type { Champion } from '@/components/types/Champion.ts';
+// src/stores/champion.ts
+import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('champion', () => {
-  const champion = ref({} as Champion)
-  function increment() {
-    champion.value.level++
-  }
-  function decrement() {
-    champion.value.level--
-  }
+export interface ChampionStats {
+  health: number;
+  damage: number;
+  speed: number;
+}
 
-  return { champion, increment, decrement }
-})
+export interface Champion {
+  name: string;
+  role: string;
+  stats: ChampionStats;
+  experience: number;
+}
+
+export const useChampionStore = defineStore('champion', {
+  state: () => ({
+    selectedChampion: null as Champion | null,
+    experience: 0,
+  }),
+  actions: {
+    selectChampion(champion: Champion) {
+      this.selectedChampion = champion;
+      this.experience = champion.experience;
+    },
+    increaseExperience(amount: number) {
+      if (this.selectedChampion) {
+        this.selectedChampion.experience += amount;
+      }
+    },
+  },
+  getters: {
+    powerLevel: (state): number => {
+      if (!state.selectedChampion) return 0;
+      return state.selectedChampion.experience * state.selectedChampion.stats.damage;
+    },
+  },
+});

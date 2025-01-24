@@ -1,29 +1,39 @@
+<template>
+  <div>
+    <h2>Selecciona un Campeón</h2>
+    <ul>
+      <li
+        v-for="champion in champions"
+        :key="champion.name"
+        @click="selectChampion(champion)"
+      >
+        {{ champion.name }} - {{ champion.role }}
+      </li>
+    </ul>
+  </div>
+</template>
+
 <script lang="ts">
 import { defineComponent } from 'vue';
-import type { Champion } from '@/components/types/Champion.ts';
-import ChampionCard from '@/components/ChampionCard.vue';
+import type { Champion } from '@/stores/useChampionStore';
 
 export default defineComponent({
-  name: 'ChampionList',
-  components: {
-    ChampionCard,
-  },
-  props: {
-    champions: {
-      type: Array<Champion>,
-      required: true,
-    },
+  emits: ['selectChampion'],
+  setup(_, { emit }) {
+    const champions: Champion[] = [
+      { name: 'Ahri', role: 'Mago', stats: { health: 500, damage: 60, speed: 340 }, experience: 0 },
+      { name: 'Garen', role: 'Luchador', stats: { health: 800, damage: 70, speed: 340 }, experience: 0 },
+      { name: 'Lee Sin', role: 'Luchador', stats: { health: 600, damage: 80, speed: 350 }, experience: 0 },
+    ];
+
+    const selectChampion = (champion: Champion) => {
+      emit('selectChampion', champion);
+    };
+
+    return {
+      champions,
+      selectChampion,
+    };
   },
 });
 </script>
-
-<template>
-  <div>
-    <h1>Champions: </h1>
-    <ChampionCard
-      v-for="champion in champions"
-      :key="champion.name"
-      :champion="champion"
-    />
-  </div>
-</template>
